@@ -27,6 +27,22 @@ class OrdersTest < ApplicationSystemTestCase
     click_on "Back"
   end
 
+  test "creating an Order with invalid email address" do
+    visit orders_url
+    click_on "New Order"
+
+    fill_in "Amount cents", with: @order.amount_cents
+    fill_in "Country", with: @order.country
+    fill_in "Email address", with: "invalid@email"
+    fill_in "First name", with: @order.first_name
+    fill_in "Last name", with: @order.last_name
+    fill_in "Number", with: @order.number
+    fill_in "Permalink", with: @order.permalink
+    click_on "Create Order"
+
+    assert_text "Email address is invalid"
+  end
+
   test "updating a Order" do
     visit orders_url
     click_on "Edit", match: :first
