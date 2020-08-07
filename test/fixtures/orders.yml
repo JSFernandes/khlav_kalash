@@ -4,7 +4,7 @@ one:
   amount_cents: 1
   first_name: MyString
   last_name: MyString
-  country: MyString
+  country: Portugal
   email_address: email@address.com
   postal_code: 3333-777
 
@@ -12,6 +12,6 @@ two:
   amount_cents: 1
   first_name: MyString
   last_name: MyString
-  country: MyString
+  country: Portugal
   email_address: email@address.com
   postal_code: 3333-777

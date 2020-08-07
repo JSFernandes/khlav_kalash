@@ -5,79 +5,38 @@ class OrdersTest < ApplicationSystemTestCase
     @order = orders(:one)
   end
 
-  test "visiting the index" do
-    visit orders_url
-    assert_selector "h1", text: "Orders"
-  end
-
   test "creating a Order" do
-    visit orders_url
-    click_on "New Order"
+    visit root_url
 
-    fill_in "Amount cents", with: @order.amount_cents
-    fill_in "Country", with: @order.country
+    select @order.country, from: "order_country"
     fill_in "Email address", with: @order.email_address
     fill_in "First name", with: @order.first_name
     fill_in "Last name", with: @order.last_name
-    fill_in "Number", with: @order.number
-    fill_in "Permalink", with: @order.permalink
-    click_on "Create Order"
+    fill_in "Postal code", with: @order.postal_code
+    click_on "Pay $2.99"
 
     assert_text "Order was successfully created"
-    click_on "Back"
   end
 
   test "creating an Order with invalid email address" do
-    visit orders_url
-    click_on "New Order"
+    visit root_url
 
-    fill_in "Amount cents", with: @order.amount_cents
-    fill_in "Country", with: @order.country
-    fill_in "Email address", with: "invalid@email"
+    select @order.country, from: "order_country"
+    fill_in "Email address", with: "not_an_email"
     fill_in "First name", with: @order.first_name
     fill_in "Last name", with: @order.last_name
-    fill_in "Number", with: @order.number
-    fill_in "Permalink", with: @order.permalink
-    click_on "Create Order"
+    click_on "Pay $2.99"
 
     assert_text "Email address is invalid"
   end
 
   test "creating an Order with missing mandatory fields" do
-    visit orders_url
-    click_on "New Order"
+    visit root_url
 
-    click_on "Create Order"
+    click_on "Pay $2.99"
 
     assert_text "First name can't be blank"
     assert_text "Postal code can't be blank"
-    assert_text "Country can't be blank"
     assert_text "Email address can't be blank"
-  end
-
-  test "updating a Order" do
-    visit orders_url
-    click_on "Edit", match: :first
-
-    fill_in "Amount cents", with: @order.amount_cents
-    fill_in "Country", with: @order.country
-    fill_in "Email address", with: @order.email_address
-    fill_in "First name", with: @order.first_name
-    fill_in "Last name", with: @order.last_name
-    fill_in "Number", with: @order.number
-    fill_in "Permalink", with: @order.permalink
-    click_on "Update Order"
-
-    assert_text "Order was successfully updated"
-    click_on "Back"
-  end
-
-  test "destroying a Order" do
-    visit orders_url
-    page.accept_confirm do
-      click_on "Destroy", match: :first
-    end
-
-    assert_text "Order was successfully destroyed"
   end
 end
