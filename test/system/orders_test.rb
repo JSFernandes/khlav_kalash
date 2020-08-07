@@ -43,6 +43,18 @@ class OrdersTest < ApplicationSystemTestCase
     assert_text "Email address is invalid"
   end
 
+  test "creating an Order with missing mandatory fields" do
+    visit orders_url
+    click_on "New Order"
+
+    click_on "Create Order"
+
+    assert_text "First name can't be blank"
+    assert_text "Postal code can't be blank"
+    assert_text "Country can't be blank"
+    assert_text "Email address can't be blank"
+  end
+
   test "updating a Order" do
     visit orders_url
     click_on "Edit", match: :first

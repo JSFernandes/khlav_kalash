@@ -1,7 +1,10 @@
 class Order < ApplicationRecord
   before_create :set_defaults
 
-  validates :email_address, email: true
+  validates :first_name, presence: true
+  validates :country, presence: true
+  validates :postal_code, presence: true
+  validates :email_address, presence: true, email: true
 
   UNIT_PRICE_CENTS = 299
   CURRENCY = 'USD'.freeze
