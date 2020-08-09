@@ -33,7 +33,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to order_permalink_url(Order.last.permalink)
+    assert_redirected_to new_payment_url(order_number: Order.last.number)
   end
 
   test "should show order" do

@@ -13,6 +13,23 @@ class Order < ApplicationRecord
     Money.new(UNIT_PRICE_CENTS, CURRENCY)
   end
 
+  def customer_billing_info
+    {
+      receipt_email: email_address,
+      shipping: {
+        name: [first_name, last_name].compact.join(" "),
+        address: {
+          line1: street_line_1,
+          city: city,
+          country: country,
+          line2: street_line_2,
+          postal_code: postal_code,
+          state: region,
+        },
+      },
+    }
+  end
+
   private
 
   def set_defaults

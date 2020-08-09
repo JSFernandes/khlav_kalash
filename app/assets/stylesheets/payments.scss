@@ -1,0 +1,15 @@
+#creditCardForm, #paymentErrors {
+  max-width: 500px;
+  padding: 15px;
+  border: 1px solid;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+#creditCardForm {
+  border-color: black;
+}
+
+#paymentErrors {
+  border-color: red;
+}

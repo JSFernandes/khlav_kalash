@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to order_permalink_url(@order.permalink), notice: 'Order was successfully created.' }
+        format.html { redirect_to new_payment_url(order_number: @order.number) }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -66,6 +66,7 @@ class OrdersController < ApplicationController
 
   def permalink
     @order = Order.find_by_permalink params[:permalink]
+    flash[:notice] = "Order was successfully created" if params[:payment_success]
   end
 
   private

@@ -1,0 +1,16 @@
+%h1 Fill your payment data below
+
+#stripeData{:data => { :intent_secret => @payment_intent.client_secret, :public_key =>  Rails.configuration.stripe["public_key"] } }
+#orderData{:data => { :payment_successful_url => order_permalink_url(@order.permalink, payment_success: true), amount: Order::UNIT_PRICE_CENTS, billing: @order.customer_billing_info.to_json } }
+
+#paymentErrors{ style: "display: none;" }
+
+%form#paymentForm
+  #creditCardForm
+  %button#confirmButton Confirm payment of $2.99
+  %button#submittingButton{ disabled: true, style: "display: none;" } Processing payment...
+
+%script{type: "text/javascript"}
+
+%script
+  = render partial: "new.js"

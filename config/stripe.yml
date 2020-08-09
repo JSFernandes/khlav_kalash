@@ -1,0 +1,9 @@
+production:
+  private_key: STRIPE_PRIVATE_KEY
+  public_key: STRIPE_PUBLIC_KEY
+development:
+  private_key: STRIPE_PRIVATE_KEY
+  public_key: STRIPE_PUBLIC_KEY
+test:
+  private_key: STRIPE_PRIVATE_KEY
+  public_key: STRIPE_PUBLIC_KEY

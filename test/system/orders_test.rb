@@ -15,7 +15,7 @@ class OrdersTest < ApplicationSystemTestCase
     fill_in "Postal code", with: @order.postal_code
     click_on "Pay $2.99"
 
-    assert_text "Order was successfully created"
+    assert_text "Fill your payment data below"
   end
 
   test "creating an Order with invalid email address" do
