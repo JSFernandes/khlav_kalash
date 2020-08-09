@@ -66,7 +66,7 @@ class OrdersController < ApplicationController
 
   def permalink
     @order = Order.find_by_permalink params[:permalink]
-    flash[:notice] = "Order was successfully created" if params[:payment_success]
+    flash[:notice] = 'Order was successfully created' if params[:payment_success]
   end
 
   private

@@ -4,8 +4,8 @@ const errorField = document.getElementById('paymentErrors')
 const submitButton = document.getElementById('confirmButton')
 const submittingButton = document.getElementById('submittingButton')
 
-const stripe = Stripe(stripeData.dataset.publicKey);
-const elements = stripe.elements({locale: 'en'});
+const stripe = Stripe(stripeData.dataset.publicKey)
+const elements = stripe.elements({locale: 'en'})
 const cardElement = elements.create('card');
 cardElement.mount('#creditCardForm')
 
@@ -20,9 +20,9 @@ const paymentRequest = stripe.paymentRequest(
 const paymentIntentSecret = stripeData.dataset.intentSecret
 
 document.getElementById('paymentForm').addEventListener('submit', function (event) {
-  errorField.style.display = 'none';
-  submitButton.style.display = 'none';
-  submittingButton.style.display = 'block';
+  errorField.style.display = 'none'
+  submitButton.style.display = 'none'
+  submittingButton.style.display = 'block'
 
   event.preventDefault();
 
