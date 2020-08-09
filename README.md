@@ -32,3 +32,12 @@ Start the puma server with
 ```
 rails s
 ```
+
+## Testing
+
+You may test the application with the `rails test` and `rails test:system` commands.
+
+## Stripe setup
+
+This application uses [Stripe](https://stripe.com) to process payments. To use this feature, you must update `config/stripe.yml` with the keys
+from your Stripe dashboard.
